@@ -2,7 +2,7 @@ const { creatHmac, randomBytes} = require('crypto')
 const { Schema, model } = require("mongoose");
 const { setDefaultHighWaterMark } = require('stream');
 
-const userschema = new Schema({
+const userSchema = new Schema({
     fullName: {
         type : String,
         require : true, 
@@ -13,7 +13,7 @@ const userschema = new Schema({
         unique : true,
     },salt:{
         type: String,
-        require : true,
+        
     },
     password:{
         type: String,
@@ -46,4 +46,4 @@ userSchema.pre("save", function (next) {
 
 const user = model('user', userSchema);
 
-model.exports = User;
+model.exports = user;
